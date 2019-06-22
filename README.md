@@ -27,12 +27,12 @@ Refrence Matlab code: [`GyroAllan`](https://github.com/XinLiGitHub/GyroAllan "Gy
 
 Parameter | YAML element | Symbol | Units
 --- | --- | --- | ---
-Gyroscope "white noise" | `gyr_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_g}"> | $rad/s$ 
-Accelerometer "white noise" | `acc_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_a}"> | $m/s^2$ 
-Gyroscope "bias Instability" | `gyr_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_g}"> | $rad/s$ 
-Accelerometer "bias Instability" | `acc_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_a}"> | $m/s^2$ 
-Gyroscope “random walk” | `gyr_bw` | $\sigma_{wg}$ | $rad/s$ 
-Accelerometer “random walk” | `acc_bw` | $\sigma_{wa}$ | $m/s^2$ 
+Gyroscope "white noise" | `gyr_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_g}"> | <img src="https://latex.codecogs.com/png.latex?%5Cfn_jvn%20%5Csmall%20rad/s"> 
+Accelerometer "white noise" | `acc_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_a}"> | ![](img/README/png.png) 
+Gyroscope "bias Instability" | `gyr_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_g}"> | <img src="https://latex.codecogs.com/png.latex?%5Cfn_jvn%20%5Csmall%20rad/s"> 
+Accelerometer "bias Instability" | `acc_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_a}"> | ![](img/README/png.png) 
+Gyroscope “random walk” | `gyr_bw` | ![](img/README/png-1561208109300.png)                        | <img src="https://latex.codecogs.com/png.latex?%5Cfn_jvn%20%5Csmall%20rad/s"> 
+Accelerometer “random walk” | `acc_bw` | ![](img/README/png-1561208134538.png) | ![](img/README/png.png) 
 
 * White noise is at tau=1 or N;
 * Bias Instability is around the minimum;
@@ -99,36 +99,46 @@ Be careful of your roslaunch file:
 ### sample output:
 
 ```
+%YAML:1.0
+---
 type: IMU
-name: A3
+name: simulator
 Gyr:
    unit: " rad/s"
    avg-axis:
-      gyr_n: 1.0351286977809465e-04
-      gyr_w: 2.9438676109223402e-05
+      gyr_n: 1.4812687142891424e-02
+      gyr_b: 9.7998795103765280e-04
+      gyr_bw: 4.6509871480460975e-05
    x-axis:
-      gyr_n: 1.0312669892959053e-04
-      gyr_w: 3.3765827874234673e-05
+      gyr_n: 1.4692399528685599e-02
+      gyr_b: 9.8518793903601973e-04
+      gyr_bw: 2.8490000231200879e-05
    y-axis:
-      gyr_n: 1.0787155789128671e-04
-      gyr_w: 3.1970693666470835e-05
+      gyr_n: 1.4844275115273257e-02
+      gyr_b: 1.0037833725431490e-03
+      gyr_bw: 5.8666018195331909e-05
    z-axis:
-      gyr_n: 9.9540352513406743e-05
-      gyr_w: 2.2579506786964707e-05
+      gyr_n: 1.4901386784715413e-02
+      gyr_b: 9.5099254153378971e-04
+      gyr_bw: 5.2373596014850146e-05
 Acc:
    unit: " m/s^2"
    avg-axis:
-      acc_n: 1.3985049290745563e-03
-      acc_w: 6.3249251509920116e-04
+      acc_n: 1.9109749723765068e-02
+      acc_b: 3.1248109984496363e-03
+      acc_bw: 4.0387852301552378e-04
    x-axis:
-      acc_n: 1.1687799474421937e-03
-      acc_w: 5.3044554054317266e-04
+      acc_n: 1.9279401330095185e-02
+      acc_b: 3.2669662466337092e-03
+      acc_bw: 4.4151611213750250e-04
    y-axis:
-      acc_n: 1.2050535351630543e-03
-      acc_w: 6.0281218607825414e-04
+      acc_n: 1.8992891739389096e-02
+      acc_b: 3.1861302761859002e-03
+      acc_bw: 4.6298800537015376e-04
    z-axis:
-      acc_n: 1.8216813046184213e-03
-      acc_w: 7.6421981867617645e-04
+      acc_n: 1.9056956101810924e-02
+      acc_b: 2.9213364725292996e-03
+      acc_bw: 3.0713145153891502e-04
 ```
 
 ## dataset
