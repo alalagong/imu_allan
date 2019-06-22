@@ -27,12 +27,12 @@ Refrence Matlab code: [`GyroAllan`](https://github.com/XinLiGitHub/GyroAllan "Gy
 
 Parameter | YAML element | Symbol | Units
 --- | --- | --- | ---
-Gyroscope "white noise" | `gyr_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_g}"> | <img src="https://latex.codecogs.com/png.latex?%5Cfn_jvn%20%5Csmall%20rad/s"> 
-Accelerometer "white noise" | `acc_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_a}"> | ![](img/README/png.png) 
-Gyroscope "bias Instability" | `gyr_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_g}"> | <img src="https://latex.codecogs.com/png.latex?%5Cfn_jvn%20%5Csmall%20rad/s"> 
-Accelerometer "bias Instability" | `acc_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_a}"> | ![](img/README/png.png) 
-Gyroscope “random walk” | `gyr_bw` | ![](img/README/png-1561208109300.png)                        | <img src="https://latex.codecogs.com/png.latex?%5Cfn_jvn%20%5Csmall%20rad/s"> 
-Accelerometer “random walk” | `acc_bw` | ![](img/README/png-1561208134538.png) | ![](img/README/png.png) 
+Gyroscope "white noise" | `gyr_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_g}"> | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20rad/s"> 
+Accelerometer "white noise" | `acc_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_a}"> | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20m/s%5E2"> 
+Gyroscope "bias Instability" | `gyr_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_g}"> | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20rad/s"> 
+Accelerometer "bias Instability" | `acc_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_a}"> | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20m/s%5E2"> 
+Gyroscope “random walk” | `gyr_bw` | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20%5Csigma_%7Bwg%7D"> | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20rad/s"> 
+Accelerometer “random walk” | `acc_bw` | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20%5Csigma_%7Bwa%7D"> | <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_jvn%20%5Csmall%20m/s%5E2"> 
 
 * White noise is at tau=1 or N;
 * Bias Instability is around the minimum;
