@@ -1,3 +1,11 @@
+# some change
+
+- Output Bias Random Walk of gyro and acc, which slope is 0.5.
+- change output of noise as Continuous-Time form.
+- fix the noise parameter of acc, include Q/N/K/R, remove coefficients 60 or 3600 etc.
+
+The main idea is to fit log Allan Variance value using Q / N / B / K / R and different power include -1, -0.5, 0, 0.5, 1.
+
 # imu_utils
 
 A ROS package tool to analyze the IMU performance. C++ version of Allan Variance Tool. 
@@ -19,14 +27,16 @@ Refrence Matlab code: [`GyroAllan`](https://github.com/XinLiGitHub/GyroAllan "Gy
 
 Parameter | YAML element | Symbol | Units
 --- | --- | --- | ---
-Gyroscope "white noise" | `gyr_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_g}"> | <img src="https://latex.codecogs.com/svg.latex?{%5Cfrac%7Brad%7D%7Bs%7D%5Cfrac%7B1%7D%7B%5Csqrt%7BHz%7D%7D}">
-Accelerometer "white noise" | `acc_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_a}"> | <img src="https://latex.codecogs.com/svg.latex?{%5Cfrac%7Bm%7D%7Bs^2%7D%5Cfrac%7B1%7D%7B%5Csqrt%7BHz%7D%7D}">
-Gyroscope "bias Instability" | `gyr_w` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_g}"> | <img src="http://latex.codecogs.com/svg.latex?\frac{rad}{s}&space;\sqrt{Hz}" title="\frac{rad}{s} \sqrt{Hz}" />
-Accelerometer "bias Instability" | `acc_w` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_a}"> | <img src="http://latex.codecogs.com/svg.latex?\frac{m}{s^2}&space;\sqrt{Hz}" title="\frac{m}{s^2} \sqrt{Hz}" />
+Gyroscope "white noise" | `gyr_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_g}"> | $rad/s$ 
+Accelerometer "white noise" | `acc_n` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_a}"> | $m/s^2$ 
+Gyroscope "bias Instability" | `gyr_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_g}"> | $rad/s$ 
+Accelerometer "bias Instability" | `acc_b` | <img src="https://latex.codecogs.com/svg.latex?{%5Csigma_b_a}"> | $m/s^2$ 
+Gyroscope “random walk” | `gyr_bw` | $\sigma_{wg}$ | $rad/s$ 
+Accelerometer “random walk” | `acc_bw` | $\sigma_{wa}$ | $m/s^2$ 
 
-* White noise is at tau=1;
-
+* White noise is at tau=1 or N;
 * Bias Instability is around the minimum;
+* Random walk is at tau=3000 or K 
 
 (according to technical report: [`Allan Variance: Noise Analysis for Gyroscopes`](http://cache.freescale.com/files/sensors/doc/app_note/AN5087.pdf "Allan Variance: Noise Analysis for Gyroscopes"))
 
@@ -134,7 +144,7 @@ Download link: [`百度网盘`](https://pan.baidu.com/s/1pLXGqx1 "DJI N3")
 
 
 ADIS16448: `200Hz`
- 
+
 Download link:[`百度网盘`](https://pan.baidu.com/s/1dGd0mn3 "ADIS16448")
 
 3dM-GX4: `500Hz`
