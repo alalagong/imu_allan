@@ -51,14 +51,18 @@ FitAllanAcc::FitAllanAcc( std::vector< double > sigma2s, std::vector< double > t
     K = param[3];
     R = param[4];
 
-    // std::cout << "Q " << Q //
-    //           << " " << N  //
-    //           << " " << B  //
-    //           << " " << K  //
-    //           << " " << R << std::endl;
-
+    std::cout << "Q " << Q //
+              << " " << N  //
+              << " " << B  //
+              << " " << K  //
+              << " " << R << std::endl;
+    std::cout << " Bias Instability " << getB( ) << " m/s^2" << std::endl;
     std::cout << " Bias Instability " << getBiasInstability( ) << " m/s^2" << std::endl;
+    std::cout << " White Noise " << getN( ) << " m/s^2" << std::endl;
     std::cout << " White Noise " << getWhiteNoise( ) << " m/s^2" << std::endl;
+    std::cout << " Random Walk " << getK( ) << " m/s^2" << std::endl;
+    // 这种方法也可以，就是会大了一点
+    std::cout << " Random walk (tau=1000)" << sqrt( calcSigma2( Q, N, B, K, R, 1000 ) )*sqrt(3) / sqrt(1000) << "m/s^2" <<std::endl;
 }
 
 std::vector< double >
@@ -124,7 +128,7 @@ FitAllanAcc::getBiasInstability( ) const
 double
 FitAllanAcc::getWhiteNoise( ) const
 {
-    return sqrt( freq ) * sqrt( calcSigma2( Q, N, B, K, R, 1 ) );
+    return  sqrt( calcSigma2( Q, N, B, K, R, 1 ) );
 }
 
 std::vector< double >
@@ -191,10 +195,13 @@ FitAllanAcc::calcSigma2( double _Q, double _N, double _B, double _K, double _R, 
     // clang-format on
 }
 
+//! 改了下面的计算，acc没有转换单位，因此不需要60,3600， 小时变秒
 double
 FitAllanAcc::getN( ) const
 {
-    return sqrt( N * N ) / 60.0;
+    // return sqrt( N * N ) / 60.0; 
+    return sqrt( N * N ); 
+
 }
 
 double
@@ -206,19 +213,22 @@ FitAllanAcc::getB( ) const
 double
 FitAllanAcc::getK( ) const
 {
-    return 60.0 * sqrt( 3.0 * K * K );
+    // return 60.0 * sqrt( 3.0 * K * K );
+    return sqrt( 3.0 * K * K );
 }
 
 double
 FitAllanAcc::getR( ) const
 {
-    return 3600.0 * sqrt( 2.0 * R * R );
+    // return 3600.0 * sqrt( 2.0 * R * R );
+    return  sqrt( 2.0 * R * R );
 }
 
 double
 FitAllanAcc::getQ( ) const
 {
-    return sqrt( Q * Q ) / ( 3600.0 * sqrt( 3.0 ) );
+    // return sqrt( Q * Q ) / ( 3600.0 * sqrt( 3.0 ) );
+    return sqrt( Q * Q ) / ( sqrt( 3.0 ) );
 }
 
 // double
